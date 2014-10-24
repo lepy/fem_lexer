@@ -1,0 +1,48 @@
+# [PackageDev] target_format: plist, ext: tmLanguage
+---
+name: LS-DYNA
+scopeName: source.lsdyna
+fileTypes: [k, key, inc, dyn]
+uuid: 570663bf-7744-4575-9fcf-35cde0f23318
+
+patterns:
+- include: '#comment'
+- include: '#comment2'
+- include: '#keyword'
+- include: '#keywordpam'
+
+
+# 0.000000000E+00, -5.000000000E-01, +5.000000000e-01
+- name: constant.numeric.float.lsdyna
+#  match: ([0-9]+\.[0-9]+([eE][+-]?[0-9]+)?|[+-]?[0-9]+\.[0-9]+([eE][+-]?[0-9]+)?|[0-9]+[eE][+-]?[0-9]+|[+-]?[0-9]+[eE][+-]?[0-9]+)
+  match: ([0-9]+\.[0-9]+([eE]?[+-]?[0-9]+)?|[+-]?[0-9]+\.[0-9]+([eE]?[+-]?[0-9]+)?|[0-9]+[eE]?[+-]?[0-9]+|[+-]?[0-9]+[eE]?[+-]?[0-9]+|[+-]?[[0-9]+\.]?)
+
+# int
+- name: constant.numeric.lsdyna
+  match: ([0-9]+|0([xX][0-9a-fA-F]+|[oO][0-7]+))
+#######################################
+
+repository:
+
+# control sequences
+  comment:
+    match: (?:^ *|\G *)((\$).*)
+    captures:
+      '1': {name: comment.line.number-sign.yaml-tmlanguage}
+
+  comment2:
+    match: (?:^ *|\G *)((#).*)
+    captures:
+      '1': {name: comment.line.number-sign.yaml-tmlanguage}
+
+  keyword:
+    match: (?:^ *|\G *)((\*).*)
+    captures:
+      '1': {name: keyword.yaml-tmlanguage}
+
+  keywordpam:
+#    match: (^DIS3D)
+    match: (^\w[\w\ ]{5}\/\ )
+    captures:
+      '1': {name: keyword.yaml-tmlanguage}
+...
