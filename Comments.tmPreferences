@@ -15,6 +15,15 @@
 				<key>value</key>
 				<string>$ </string>
 			</dict>
+			<!-- The disabling of indention was found under the following link:
+					https://forum.sublimetext.com/t/comment-character-at-the-beginning-of-the-line/9886/2
+			  -->
+			<dict>
+			    <key>name</key>
+			    <string>TM_COMMENT_DISABLE_INDENT</string>
+			    <key>value</key>
+			    <string>yes</string>
+			</dict>			
 		</array>
 	</dict>
 </dict>
